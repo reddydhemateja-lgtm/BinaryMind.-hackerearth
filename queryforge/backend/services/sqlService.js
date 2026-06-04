@@ -1,5 +1,5 @@
 const { Parser } = require('node-sql-parser');
-const { askGemini } = require('./gemini');
+const { askGroq } = require('./groq');
 
 const parser = new Parser();
 
@@ -17,7 +17,7 @@ async function analyzeSQL(query, dialect) {
   const complexity = estimateComplexity(query);
   const issues = staticLint(query);
 
-  const text = await askGemini(`You are a senior SQL expert. Analyze this ${dialect} SQL query and respond ONLY in valid JSON with no markdown.
+  const text = await askGroq(`You are a senior SQL expert. Analyze this ${dialect} SQL query and respond ONLY in valid JSON with no markdown.
 
 Query:
 ${query}
