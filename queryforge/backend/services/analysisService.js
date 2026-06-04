@@ -1,4 +1,4 @@
-const { askGemini } = require('./gemini');
+const { askGROQ } = require('./gemini');
 
 async function analyzeDataFile(file) {
   const content = file.buffer.toString('utf-8');
