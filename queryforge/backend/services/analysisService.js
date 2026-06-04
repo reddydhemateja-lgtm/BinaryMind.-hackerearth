@@ -1,4 +1,4 @@
-const { askGROQ } = require('./gemini');
+const { askGroq } = require('./groq');
 
 async function analyzeDataFile(file) {
   const content = file.buffer.toString('utf-8');
@@ -30,7 +30,7 @@ async function analyzeDataFile(file) {
     rowCount = content.split('\n').length;
   }
 
-  const text = await askGemini(`You are a data scientist. Analyze this ${ext.toUpperCase()} data file.
+  const text = await askGroq(`You are a data scientist. Analyze this ${ext.toUpperCase()} data file.
 
 File: ${file.originalname}
 Rows: ${rowCount}, Columns: ${columnCount}
