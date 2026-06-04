@@ -1,5 +1,5 @@
 const Diff = require('diff');
-const { askGemini } = require('./gemini');
+const { askGroq } = require('./groq');
 
 async function compareFiles(file1, file2, mode = 'line') {
   const text1 = file1.buffer.toString('utf-8');
@@ -63,7 +63,7 @@ function buildSideBySide(text1, text2) {
 }
 
 async function getAIFileSummary(diffData, name1, name2) {
-  const text = await askGemini(`You are a data analyst. Summarize key differences between "${name1 || 'File 1'}" and "${name2 || 'File 2'}".
+  const text = await askGroq(`You are a data analyst. Summarize key differences between "${name1 || 'File 1'}" and "${name2 || 'File 2'}".
 
 Diff stats: ${JSON.stringify(diffData.stats || diffData)}
 
